@@ -1,103 +1,285 @@
-import Image from "next/image";
+'use client';
+
+import { skills, experiences, competitions, certifications } from './data';
+import NavigationDots from './components/NavigationDots';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const sections = ['header', 'summary', 'build', 'experience', 'competitions', 'skills', 'certifications', 'languages', 'philosophy', 'contact'];
+  const [activeSection, setActiveSection] = useState('header');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionElements = sections.map(section => ({
+        id: section,
+        element: document.getElementById(section)
+      }));
+      
+      // Find the section that takes up most of the viewport
+      let maxVisibleSection = { id: sections[0], visibleHeight: 0 };
+      
+      sectionElements.forEach(({ id, element }) => {
+        if (!element) return;
+        const rect = element.getBoundingClientRect();
+        const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+        
+        if (visibleHeight > maxVisibleSection.visibleHeight) {
+          maxVisibleSection = { id, visibleHeight };
+        }
+      });
+
+      setActiveSection(maxVisibleSection.id);
+    };
+
+    // Initial check
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sections]);
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <NavigationDots sections={sections} activeSection={activeSection} />
+      
+      <div className="snap-y snap-mandatory h-screen overflow-y-scroll" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
+        {/* Header Section */}
+        <section id="header" className="snap-start h-screen flex items-center justify-center px-4">
+          <header className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Otman Mouhib
+            </h1>
+            <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6">
+              Computer Engineer · AI & Embedded Systems · Full-Stack & Data Engineering
+            </h2>
+            <div className="flex flex-col items-center gap-6">
+              <a href="mailto:Otman.Mouhib@univ-nantes.fr" 
+                 className="text-blue-600 dark:text-blue-400 hover:underline">
+                Otman.Mouhib@univ-nantes.fr
+              </a>
+              <div className="flex justify-center gap-4">
+                <button className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                  LinkedIn
+                </button>
+                <button className="bg-gray-700 dark:bg-gray-200 text-white dark:text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                  GitHub
+                </button>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                  Download CV
+                </button>
+              </div>
+            </div>
+          </header>
+        </section>
+
+        {/* Professional Summary */}
+        <section id="summary" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Professional Summary</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              I'm a polyvalent engineer with a foundation in AI research, IoT systems, full-stack development, and data engineering. 
+              My focus is on building systems that are not only intelligent but reliable, scalable, and usable. 
+              I approach problems holistically — from neural networks to dashboards — mastering each layer with depth and purpose.
+            </p>
+          </div>
+        </section>
+
+        {/* What I Build */}
+        <section id="build" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">What I Build</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold mb-4">Web & Data Engineering</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Developed secure full-stack applications and real-time dashboards. Built data pipelines 
+                  for internal monitoring and scoring systems.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    Next.js
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    MongoDB
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    Streamlit
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    Power BI
+                  </span>
+                </div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold mb-4">AI & Predictive Systems</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Created and optimized ML models for research in temporal predictability on multicore processors.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    PyTorch
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    LSTM
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    Cortex-A53
+                  </span>
+                </div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold mb-4">Embedded & IoT Systems</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Designed end-to-end automation using ESP32 and MQTT, including OTA updates, 
+                  sensor integration, and cloud sync.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    ESP32
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    MQTT
+                  </span>
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                    OTA
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section id="experience" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Experience</h2>
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-2">{exp.company}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2">{exp.role} | {exp.period}</p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">{exp.impact}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech, i) => (
+                      <span key={i} className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Competitions */}
+        <section id="competitions" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Competitions</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {competitions.map((comp, index) => (
+                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-2">{comp.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{comp.year}</p>
+                  <p className="text-blue-600 dark:text-blue-400 font-semibold">{comp.achievement}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Technical Skills */}
+        <section id="skills" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Technical Skills</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Array.from(new Set(skills.map(s => s.category))).map((category) => (
+                <div key={category} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-4">{category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.filter(s => s.category === category).map((skill, i) => (
+                      <span key={i} className="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Certifications */}
+        <section id="certifications" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Certifications</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {certifications.map((cert, index) => (
+                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-2">{cert.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{cert.issuer} · {cert.year}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Languages & Extras */}
+        <section id="languages" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Languages & Extras</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold mb-4">Languages</h3>
+                <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                  <li>🇬🇧 English - Professional Working Proficiency</li>
+                  <li>🇫🇷 French - Native</li>
+                  <li>🇲🇦 Arabic - Native</li>
+                </ul>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold mb-4">Additional Information</h3>
+                <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                  <li>International Driving License (Type B)</li>
+                  <li>Agile teamwork</li>
+                  <li>Technical mentoring</li>
+                  <li>R&D documentation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Personal Statement */}
+        <section id="philosophy" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Engineering Philosophy</h2>
+            <blockquote className="border-l-4 border-blue-500 pl-4 py-2 italic text-lg text-gray-600 dark:text-gray-400">
+              "I design with care, code with intent, and build with a systems mindset. From AI labs to IoT farms, I bring ideas into reliable execution."
+            </blockquote>
+          </div>
+        </section>
+
+        {/* Footer CTA */}
+        <section id="contact" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <footer className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Let's talk.</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+              Interested in a profile that blends innovation, engineering discipline, and versatility?
+            </p>
+            <div className="flex justify-center gap-4">
+              <a href="mailto:Otman.Mouhib@univ-nantes.fr" 
+                 className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+                Contact Me
+              </a>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors">
+                Download CV
+              </button>
+            </div>
+          </footer>
+        </section>
+      </div>
     </div>
   );
 }
