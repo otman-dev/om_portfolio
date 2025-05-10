@@ -44,6 +44,13 @@ export const experiences: Experience[] = [
     impact: 'AI predictability on multicore architectures using quantile regression and Cortex-A53'
   },
   {
+    company: 'SEBN.MA',
+    role: 'Software Engineer',
+    period: '2024',
+    technologies: ['Python', 'React', 'AWS', 'Docker'],
+    impact: 'Developed enterprise-grade software solutions with focus on cloud infrastructure and automation'
+  },
+  {
     company: 'Atlantic Dunes',
     role: 'Full-Stack Engineer',
     period: '2023 - 2024',
@@ -78,9 +85,14 @@ export const competitions: Competition[] = [
     achievement: 'Top 3'
   },
   {
-    name: 'CNS Top Coders Challenge',
+    name: 'DeepTech Startup Challenge',
     year: '2024',
     achievement: 'Top 4'
+  },
+  {
+    name: 'AI Innovation Contest',
+    year: '2024',
+    achievement: 'Top 2'
   }
 ];
 

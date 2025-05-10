@@ -3,40 +3,42 @@
 import { skills, experiences, competitions, certifications } from './data';
 import NavigationDots from './components/NavigationDots';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const sections = ['header', 'summary', 'build', 'experience', 'competitions', 'skills', 'certifications', 'languages', 'philosophy', 'contact'];
   const [activeSection, setActiveSection] = useState('header');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sectionElements = sections.map(section => ({
-        id: section,
-        element: document.getElementById(section)
-      }));
-      
-      // Find the section that takes up most of the viewport
-      let maxVisibleSection = { id: sections[0], visibleHeight: 0 };
-      
-      sectionElements.forEach(({ id, element }) => {
-        if (!element) return;
-        const rect = element.getBoundingClientRect();
-        const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-        
-        if (visibleHeight > maxVisibleSection.visibleHeight) {
-          maxVisibleSection = { id, visibleHeight };
+    const observers = new Map();
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          setActiveSection(entry.target.id);
         }
       });
-
-      setActiveSection(maxVisibleSection.id);
     };
 
-    // Initial check
-    handleScroll();
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: "0px"
+    };
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        observer.observe(element);
+        observers.set(section, observer);
+      }
+    });
+
+    // Cleanup observers
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
   }, [sections]);
 
   return (
@@ -47,6 +49,15 @@ export default function Home() {
         {/* Header Section */}
         <section id="header" className="snap-start h-screen flex items-center justify-center px-4">
           <header className="text-center">
+            <div className="relative w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-blue-500 dark:ring-blue-400 shadow-lg hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/Profile_photo.jpg"
+                alt="Otman Mouhib"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Otman Mouhib
             </h1>
