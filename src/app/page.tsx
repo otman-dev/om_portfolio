@@ -4,6 +4,9 @@ import { skills, experiences, competitions, certifications } from './data';
 import NavigationDots from './components/NavigationDots';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
+import { HiMail } from 'react-icons/hi';
 
 export default function Home() {
   const sections = ['header', 'summary', 'build', 'experience', 'competitions', 'skills', 'certifications', 'languages', 'philosophy', 'contact'];
@@ -47,41 +50,142 @@ export default function Home() {
       
       <div className="snap-y snap-mandatory h-screen overflow-y-scroll" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
         {/* Header Section */}
-        <section id="header" className="snap-start h-screen flex items-center justify-center px-4">
-          <header className="text-center">
-            <div className="relative w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-blue-500 dark:ring-blue-400 shadow-lg hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/Profile_photo.jpg"
-                alt="Otman Mouhib"
-                fill
-                priority
-                className="object-cover"
-              />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Otman Mouhib
-            </h1>
-            <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6">
-              Computer Engineer · AI & Embedded Systems · Full-Stack & Data Engineering
-            </h2>
-            <div className="flex flex-col items-center gap-6">
-              <a href="mailto:Otman.Mouhib@univ-nantes.fr" 
-                 className="text-blue-600 dark:text-blue-400 hover:underline">
-                Otman.Mouhib@univ-nantes.fr
+        <section id="header" className="snap-start h-screen flex items-center justify-center px-4 relative overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+          </div>
+
+          <motion.header 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-center relative z-10 max-w-4xl mx-auto"
+          >
+            <motion.div 
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative w-48 h-48 mx-auto mb-12 group"
+            >
+              {/* Animated ring */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-spin-slow blur-md group-hover:blur-lg transition-all duration-300"></div>
+              
+              {/* Profile container */}
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative w-48 h-48 rounded-full p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+              >
+                <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-900 p-1">
+                  <div className="w-full h-full rounded-full overflow-hidden relative">
+                    <Image
+                      src="/Profile_photo.jpg"
+                      alt="Otman Mouhib"
+                      fill
+                      priority
+                      className="object-cover hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="text-5xl md:text-7xl font-bold mb-6"
+            >
+              <span className="gradient-text">Otman Mouhib</span>
+            </motion.h1>
+
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light space-x-3"
+            >
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                className="inline-block"
+              >
+                Computer Engineer
+              </motion.span>
+              <span className="text-blue-500/70 dark:text-blue-400/70">•</span>
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+                className="inline-block"
+              >
+                AI & Embedded Systems
+              </motion.span>
+              <span className="text-purple-500/70 dark:text-purple-400/70">•</span>
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8 }}
+                className="inline-block"
+              >
+                Full-Stack & Data Engineering
+              </motion.span>
+            </motion.h2>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 }}
+              className="flex flex-col items-center gap-8 mt-10"
+            >
+              <a 
+                href="mailto:Otman.Mouhib@univ-nantes.fr"
+                className="group flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <HiMail className="text-xl group-hover:rotate-12 transition-transform duration-300" />
+                <span className="border-b border-transparent group-hover:border-current transition-colors">
+                  Otman.Mouhib@univ-nantes.fr
+                </span>
               </a>
-              <div className="flex justify-center gap-4">
-                <button className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
-                  LinkedIn
-                </button>
-                <button className="bg-gray-700 dark:bg-gray-200 text-white dark:text-gray-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
-                  GitHub
-                </button>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                  Download CV
-                </button>
+              
+              <div className="flex flex-wrap justify-center gap-4">
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://linkedin.com"
+                  target="_blank"
+                  className="flex items-center gap-2 bg-[#0077B5]/90 hover:bg-[#0077B5] text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <FaLinkedin className="text-xl" />
+                  <span>LinkedIn</span>
+                </motion.a>
+
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://github.com"
+                  target="_blank"
+                  className="flex items-center gap-2 bg-gray-900 hover:bg-black dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <FaGithub className="text-xl" />
+                  <span>GitHub</span>
+                </motion.a>
+
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group flex items-center gap-2 glass-card px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 gradient-border"
+                >
+                  <FaDownload className="text-xl relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+                  <span className="relative z-10">Download CV</span>
+                </motion.button>
               </div>
-            </div>
-          </header>
+            </motion.div>
+          </motion.header>
         </section>
 
         {/* Professional Summary */}
