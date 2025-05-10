@@ -223,11 +223,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="glass-card p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+                  className="group relative p-6 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-blue-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-blue-50 dark:hover:from-gray-900 dark:hover:to-blue-900/10 shadow-sm hover:shadow-md"
                 >
-                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm a polyvalent engineer with a foundation in AI research, IoT systems, full-stack development, and data engineering.
-                  </p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] to-cyan-500/[0.02] rounded-xl"></div>
+                  <div className="relative">
+                    <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed font-medium">
+                      I'm a polyvalent engineer with a foundation in AI research, IoT systems, full-stack development, and data engineering.
+                    </p>
+                  </div>
                 </motion.div>
 
                 <motion.div
@@ -235,11 +238,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="glass-card p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+                  className="group relative p-6 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-purple-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-purple-50 dark:hover:from-gray-900 dark:hover:to-purple-900/10 shadow-sm hover:shadow-md"
                 >
-                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    My focus is on building systems that are not only intelligent but reliable, scalable, and usable.
-                  </p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.02] to-pink-500/[0.02] rounded-xl"></div>
+                  <div className="relative">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                      My focus is on building systems that are not only intelligent but reliable, scalable, and usable.
+                    </p>
+                  </div>
                 </motion.div>
 
                 <motion.div
@@ -247,11 +253,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="glass-card p-6 rounded-xl border border-gray-200 dark:border-gray-700 md:col-span-2"
+                  className="group relative p-6 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-emerald-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-emerald-50 dark:hover:from-gray-900 dark:hover:to-emerald-900/10 shadow-sm hover:shadow-md md:col-span-2"
                 >
-                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I approach problems holistically — from neural networks to dashboards — mastering each layer with depth and purpose.
-                  </p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.02] to-teal-500/[0.02] rounded-xl"></div>
+                  <div className="relative">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                      I approach problems holistically — from neural networks to dashboards — mastering each layer with depth and purpose.
+                    </p>
+                  </div>
                 </motion.div>
               </div>
 
@@ -359,19 +368,21 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   whileHover={{ scale: 1.02, translateY: -5 }}
-                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all duration-300 bg-white/90 dark:bg-gray-900/90"
+                  className="group relative p-8 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-blue-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-blue-50 dark:hover:from-gray-900 dark:hover:to-blue-900/10 shadow-sm hover:shadow-md"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-xl opacity-90"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] to-cyan-500/[0.02] rounded-xl"></div>
                   <div className="relative">
-                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
                       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                       📊 Web & Data Engineering
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-200 mb-4 font-medium">Developed secure full-stack applications and real-time dashboards. Built data pipelines for internal monitoring and competition platforms.</p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      Developed secure full-stack applications and real-time dashboards. Built data pipelines for internal monitoring and competition platforms.
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">Next.js</span>
                       <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">MongoDB</span>
@@ -391,19 +402,21 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                   whileHover={{ scale: 1.02, translateY: -5 }}
-                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+                  className="group relative p-8 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-purple-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-purple-50 dark:hover:from-gray-900 dark:hover:to-purple-900/10 shadow-sm hover:shadow-md"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.02] to-pink-500/[0.02] rounded-xl"></div>
                   <div className="relative">
-                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
                       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                       🤖 AI & Predictive Systems
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-200 mb-4 font-medium">Created and optimized ML models for research in temporal predictability on multicore processors.</p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      Created and optimized ML models for research in temporal predictability on multicore processors.
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 text-sm bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">PyTorch</span>
                       <span className="px-3 py-1 text-sm bg-pink-100/80 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">LSTM</span>
@@ -421,19 +434,21 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                   whileHover={{ scale: 1.02, translateY: -5 }}
-                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-green-500/50 transition-all duration-300"
+                  className="group relative p-8 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-emerald-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-emerald-50 dark:hover:from-gray-900 dark:hover:to-emerald-900/10 shadow-sm hover:shadow-md"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.02] to-teal-500/[0.02] rounded-xl"></div>
                   <div className="relative">
                     <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
                       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                       📡 Embedded & IoT Systems
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-200 mb-4 font-medium">Designed end-to-end automation using ESP32 and MQTT, including OTA updates, sensor integration, and cloud sync.</p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      Designed end-to-end automation using ESP32 and MQTT, including OTA updates, sensor integration, and cloud sync.
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">ESP32</span>
                       <span className="px-3 py-1 text-sm bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">Arduino</span>
@@ -450,22 +465,52 @@ export default function Home() {
 
         {/* Experience */}
         <section id="experience" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl w-full">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Experience</h2>
+          <div className="max-w-7xl w-full relative">
+            <div className="flex items-center space-x-4 mb-12">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500"
+              />
+              <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300">
+                Experience
+              </h2>
+            </div>
             <div className="space-y-8">
               {experiences.map((exp, index) => (
-                <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-2">{exp.company}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2">{exp.role} | {exp.period}</p>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">{exp.impact}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, i) => (
-                      <span key={i} className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="group relative p-6 rounded-xl border border-gray-200/20 dark:border-gray-700/20 hover:border-blue-500/30 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 hover:bg-gradient-to-br hover:from-white hover:to-blue-50 dark:hover:from-gray-900 dark:hover:to-blue-900/10 shadow-sm hover:shadow-md"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] to-purple-500/[0.02] rounded-xl"></div>
+                  <div className="relative">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {exp.company}
+                    </h3>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-2 font-medium">
+                      {exp.role} | {exp.period}
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                      {exp.impact}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, i) => (
+                        <span 
+                          key={i} 
+                          className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full border border-blue-200/50 dark:border-blue-700/50"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
