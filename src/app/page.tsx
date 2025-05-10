@@ -189,79 +189,254 @@ export default function Home() {
         </section>
 
         {/* Professional Summary */}
-        <section id="summary" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Professional Summary</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm a polyvalent engineer with a foundation in AI research, IoT systems, full-stack development, and data engineering. 
-              My focus is on building systems that are not only intelligent but reliable, scalable, and usable. 
-              I approach problems holistically — from neural networks to dashboards — mastering each layer with depth and purpose.
-            </p>
+        <section id="summary" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          {/* Background decorative elements */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          </div>
+
+          <div className="max-w-5xl w-full relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
+            >
+              <div className="flex items-center space-x-4 mb-8">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500"
+                />
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                  Professional Summary
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="glass-card p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+                >
+                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    I'm a polyvalent engineer with a foundation in AI research, IoT systems, full-stack development, and data engineering.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="glass-card p-6 rounded-xl border border-gray-200 dark:border-gray-700"
+                >
+                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    My focus is on building systems that are not only intelligent but reliable, scalable, and usable.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="glass-card p-6 rounded-xl border border-gray-200 dark:border-gray-700 md:col-span-2"
+                >
+                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    I approach problems holistically — from neural networks to dashboards — mastering each layer with depth and purpose.
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Additional visual elements */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="flex justify-center mt-8 space-x-4"
+              >
+                <div className="flex items-center space-x-2">
+                  <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
+                  <span className="text-gray-600 dark:text-gray-400">AI & Research</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
+                  <span className="text-gray-600 dark:text-gray-400">IoT Systems</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="w-3 h-3 bg-pink-500 rounded-full"></span>
+                  <span className="text-gray-600 dark:text-gray-400">Full-Stack Dev</span>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
         {/* What I Build */}
-        <section id="build" className="snap-start h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl w-full">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">What I Build</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                <h3 className="text-xl font-semibold mb-4">Web & Data Engineering</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Developed secure full-stack applications and real-time dashboards. Built data pipelines 
-                  for internal monitoring and scoring systems.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    Next.js
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    MongoDB
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    Streamlit
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    Power BI
-                  </span>
-                </div>
+        <section id="build" className="snap-start min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 relative overflow-hidden">
+          {/* Animated background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-50/30 to-purple-50/30 dark:from-transparent dark:via-blue-900/10 dark:to-purple-900/10"></div>
+          
+          {/* Background decorative elements with enhanced animations */}
+          <div className="absolute inset-0 opacity-10">
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.2, 1],
+                rotate: [0, 90, 0]
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute top-1/3 left-1/4 w-72 h-72 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl"
+            />
+            <motion.div
+              animate={{ 
+                scale: [1.2, 1, 1.2],
+                rotate: [90, 0, 90]
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+              }} 
+              className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-yellow-500/20 rounded-full mix-blend-multiply filter blur-3xl"
+            />
+          </div>
+
+          <div className="max-w-7xl w-full relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-12"
+            >
+              {/* Section Header with enhanced styling */}
+              <div className="text-center space-y-4 mb-16">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="h-1 w-24 bg-gradient-to-r from-pink-500 to-yellow-500 mx-auto"
+                />
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300"
+                >
+                  What I Build
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+                >
+                  Creating delightful digital experiences through innovative design and seamless interactions
+                </motion.p>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                <h3 className="text-xl font-semibold mb-4">AI & Predictive Systems</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Created and optimized ML models for research in temporal predictability on multicore processors.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    PyTorch
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    LSTM
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    Cortex-A53
-                  </span>
-                </div>
+
+              {/* Project Cards Grid with enhanced interactivity */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* UI/UX Design Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-pink-500/50 transition-all duration-300"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-purple-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors duration-300">
+                      UI/UX Design
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">Crafting intuitive and engaging user interfaces with a focus on accessibility and user experience.</p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 text-sm bg-pink-100/80 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">Figma</span>
+                      <span className="px-3 py-1 text-sm bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">Adobe XD</span>
+                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">Prototyping</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Frontend Development Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      Frontend Development
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">Building responsive and performant web applications with modern frameworks and best practices.</p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">React</span>
+                      <span className="px-3 py-1 text-sm bg-cyan-100/80 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full">Next.js</span>
+                      <span className="px-3 py-1 text-sm bg-sky-100/80 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-full">Tailwind</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Backend Development Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-green-500/50 transition-all duration-300"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative">
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
+                      Backend Development
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">Creating robust and scalable server-side solutions with modern technologies and architectures.</p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">Node.js</span>
+                      <span className="px-3 py-1 text-sm bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">Python</span>
+                      <span className="px-3 py-1 text-sm bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">FastAPI</span>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
-                <h3 className="text-xl font-semibold mb-4">Embedded & IoT Systems</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Designed end-to-end automation using ESP32 and MQTT, including OTA updates, 
-                  sensor integration, and cloud sync.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    ESP32
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    MQTT
-                  </span>
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm">
-                    OTA
-                  </span>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
