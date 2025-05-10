@@ -352,35 +352,39 @@ export default function Home() {
 
               {/* Project Cards Grid with enhanced interactivity */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* UI/UX Design Card */}
+                {/* Web & Data Engineering Card */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   whileHover={{ scale: 1.02, translateY: -5 }}
-                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-pink-500/50 transition-all duration-300"
+                  className="group relative glass-card p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all duration-300 bg-white/90 dark:bg-gray-900/90"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-purple-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-xl opacity-90"></div>
                   <div className="relative">
-                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
+                    <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mb-6 transform group-hover:rotate-6 transition-transform duration-300">
                       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors duration-300">
-                      UI/UX Design
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      📊 Web & Data Engineering
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">Crafting intuitive and engaging user interfaces with a focus on accessibility and user experience.</p>
+                    <p className="text-gray-700 dark:text-gray-200 mb-4 font-medium">Developed secure full-stack applications and real-time dashboards. Built data pipelines for internal monitoring and competition platforms.</p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 text-sm bg-pink-100/80 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">Figma</span>
-                      <span className="px-3 py-1 text-sm bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">Adobe XD</span>
-                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">Prototyping</span>
+                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">Next.js</span>
+                      <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">MongoDB</span>
+                      <span className="px-3 py-1 text-sm bg-orange-100/80 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full">Streamlit</span>
+                      <span className="px-3 py-1 text-sm bg-yellow-100/80 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full">Power BI</span>
+                      <span className="px-3 py-1 text-sm bg-cyan-100/80 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full">Tailwind</span>
+                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">REST</span>
+                      <span className="px-3 py-1 text-sm bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">MQTT</span>
                     </div>
                   </div>
                 </motion.div>
 
-                {/* Frontend Development Card */}
+                {/* AI & Predictive Systems Card */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -396,14 +400,16 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                      Frontend Development
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                      🤖 AI & Predictive Systems
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">Building responsive and performant web applications with modern frameworks and best practices.</p>
+                    <p className="text-gray-700 dark:text-gray-200 mb-4 font-medium">Created and optimized ML models for research in temporal predictability on multicore processors.</p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">React</span>
-                      <span className="px-3 py-1 text-sm bg-cyan-100/80 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full">Next.js</span>
-                      <span className="px-3 py-1 text-sm bg-sky-100/80 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-full">Tailwind</span>
+                      <span className="px-3 py-1 text-sm bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">PyTorch</span>
+                      <span className="px-3 py-1 text-sm bg-pink-100/80 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">LSTM</span>
+                      <span className="px-3 py-1 text-sm bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">Quantile Regression</span>
+                      <span className="px-3 py-1 text-sm bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">ARM Cortex-A53</span>
+                      <span className="px-3 py-1 text-sm bg-pink-100/80 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">pandas</span>
                     </div>
                   </div>
                 </motion.div>
@@ -425,13 +431,15 @@ export default function Home() {
                       </svg>
                     </div>
                     <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
-                      Backend Development
+                      📡 Embedded & IoT Systems
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">Creating robust and scalable server-side solutions with modern technologies and architectures.</p>
+                    <p className="text-gray-700 dark:text-gray-200 mb-4 font-medium">Designed end-to-end automation using ESP32 and MQTT, including OTA updates, sensor integration, and cloud sync.</p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">Node.js</span>
-                      <span className="px-3 py-1 text-sm bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">Python</span>
-                      <span className="px-3 py-1 text-sm bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">FastAPI</span>
+                      <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">ESP32</span>
+                      <span className="px-3 py-1 text-sm bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">Arduino</span>
+                      <span className="px-3 py-1 text-sm bg-teal-100/80 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full">MQTT</span>
+                      <span className="px-3 py-1 text-sm bg-green-100/80 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">OTA</span>
+                      <span className="px-3 py-1 text-sm bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">Sensor Buses</span>
                     </div>
                   </div>
                 </motion.div>
