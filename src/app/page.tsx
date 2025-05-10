@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
   const sections = ['header', 'summary', 'build', 'experience', 'competitions', 'skills', 'certifications', 'languages', 'philosophy', 'contact'];

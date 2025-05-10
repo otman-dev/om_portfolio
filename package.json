@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.10.5",
     "next": "15.3.2",
     "react": "^19.0.0",
